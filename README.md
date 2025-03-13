@@ -139,7 +139,7 @@
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
-        <img class="heart" src="https://static.vecteezy.com/system/resources/thumbnails/017/419/333/small/3d-illustration-of-a-shiny-heart-symbol-of-love-and-romance-png.png" alt="Heart">
+        <img class="heart" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCfWlLj9qiuLuoiT96GDjaezt5NJbEzxOkTzOkyTFDUs3NjyCkmdRVX04Z2SAvXKjMKIqGU-SowP6s2SSfNJ4QKeekPexTPOoHjHXFqkqjrnr7WjfPAbc1zZca3u6xK3YzhxDAr6-IvZXMhsmLyIS6CXJOsQsXy9QegRnWQgF-7DxIfQqWY4OaAcnX5EA/s1600/heart.png" alt="Heart">
         <button class="next-btn" onclick="window.location.href='README2.md'">NEXT →</button>
     </div>
     <script>
