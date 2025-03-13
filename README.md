@@ -1,73 +1,161 @@
-Loading Card by Fathir
-
-Deskripsi
-
-Ini adalah halaman web sederhana dengan efek loading card yang memiliki animasi progres, teks, dan efek jatuhnya emoji secara acak. Tampilan halaman dibuat dengan desain estetik menggunakan gradien warna, efek blur, dan animasi CSS.
-
-Fitur Utama
-
-Loading Text: Menampilkan teks "Loading Card..." dengan efek gradien warna.
-
-Subtext: Pesan permintaan maaf yang tampak lebih menonjol dengan warna gelap.
-
-Progress Bar: Animasi progres bar berjalan selama 3 detik.
-
-Gambar Hati: Ikon hati dengan animasi heartbeat.
-
-Tombol Next: Mengarahkan pengguna ke halaman "Card.html" setelah loading selesai.
-
-Emoji Falling Effect: Efek jatuhnya emoji secara acak di layar.
-
-Teknologi yang Digunakan
-
-HTML: Struktur halaman web.
-
-CSS: Styling dengan efek gradien, animasi, dan shadow.
-
-JavaScript: Animasi emoji yang jatuh secara acak di layar.
-
-Cara Menggunakan
-
-Simpan file HTML ini dengan nama index.html.
-
-Buka file di browser untuk melihat efek loading dan animasi.
-
-Klik tombol "NEXT" untuk berpindah ke halaman Card.html (pastikan file tersebut ada).
-
-Cuplikan Kode Penting
-
-Animasi Progress Bar:
-
-@keyframes load {
-    0% { width: 0%; }
-    100% { width: 100%; }
-}
-
-Progress bar akan terisi dalam 3 detik.
-
-Animasi Emoji Jatuh:
-
-function createEmoji() {
-    const emojiArray = ['❤️', '💖', '🎉', '💕', '🥳', '🎉', '💗', '🥳'];
-    const emoji = document.createElement('div');
-    emoji.classList.add('emoji');
-    emoji.innerText = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-    emoji.style.left = Math.random() * window.innerWidth + 'px';
-    emoji.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    document.body.appendChild(emoji);
-    setTimeout(() => emoji.remove(), 5000);
-}
-setInterval(createEmoji, 500);
-
-Fungsi ini membuat emoji jatuh secara acak dengan kecepatan yang berbeda-beda.
-
-Catatan
-
-Pastikan file Card.html tersedia agar tombol "NEXT" dapat berfungsi dengan baik.
-
-Bisa dikembangkan lebih lanjut dengan efek suara atau transisi halaman.
-
-Lisensi
-
-Proyek ini dibuat untuk keperluan pembelajaran dan dapat digunakan bebas sesuai kebutuhan.
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Card by Fathir...</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            border: 5px solid white;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .loading-text {
+            font-size: 2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .subtext {
+            font-size: 1em;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        .progress-bar {
+            width: 200px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #ff4d6d;
+            border-radius: 50px;
+            animation: load 3s ease-in-out forwards;
+        }
+        @keyframes load {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .heart {
+            width: 80px;
+            height: 80px;
+            margin-top: 20px;
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .next-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .next-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+        .emoji {
+            position: absolute;
+            font-size: 2em;
+            top: -50px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-50px); }
+            to { transform: translateY(100vh); }
+        }
+        .subtext {
+        font-size: 1em;
+        margin-top: 10px;
+        opacity: 0.8;
+        color: #333; /* Changed text color to a darker shade */
+    }
+        .loading-text {
+        font-size: 2em;
+        font-weight: bold;
+        background: linear-gradient(135deg, #ff4d6d, #ff7f7f); /* Changed the background to a reddish gradient */
+        padding: 15px 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        color: white; /* Changed text color to white for better contrast */
+    }
+   .next-btn {
+        background: linear-gradient(135deg, #ff4d6d, #ff7f7f);
+        border: none;
+        padding: 12px 25px;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        margin-top: 20px;
+        backdrop-filter: blur(10px);
+    }
+    .next-btn:hover {
+        background: linear-gradient(135deg, #ff7f7f, #ff4d6d);
+        transform: scale(1.1);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loading-text">Loading Card...</div>
+        <div class="subtext">Maaf kalo kamu ga suka 🙏🙏</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <img class="heart" src="https://static.vecteezy.com/system/resources/thumbnails/017/419/333/small/3d-illustration-of-a-shiny-heart-symbol-of-love-and-romance-png.png" alt="Heart">
+        <button class="next-btn" onclick="window.location.href='Card.html'">NEXT →</button>
+    </div>
+    <script>
+        function createEmoji() {
+            const emojiArray = ['❤️', '💖', '🎉', '💕', '🥳', '🎉', '💗', '🥳'];
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji');
+            emoji.innerText = emojiArray[Math.floor(Math.random() * emojiArray.length)];
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 5000);
+        }
+        
+        setInterval(createEmoji, 500);
+    </script>
+</body>
+</html>
