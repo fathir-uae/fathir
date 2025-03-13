@@ -140,7 +140,7 @@
             <div class="progress"></div>
         </div>
         <img class="heart" src="https://static.vecteezy.com/system/resources/thumbnails/017/419/333/small/3d-illustration-of-a-shiny-heart-symbol-of-love-and-romance-png.png" alt="Heart">
-        <button class="next-btn" onclick="window.location.href='README2.md'>NEXT →</button>
+        <button class="next-btn" onclick="window.location.href='README2.md'">NEXT →</button>
     </div>
     <script>
         function createEmoji() {
